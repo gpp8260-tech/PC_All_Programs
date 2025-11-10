@@ -1,0 +1,4 @@
+composer require mongodb/laravel-mongodb
+
+in model
+use MongoDB\Laravel\Eloquent\Model;

@@ -1,0 +1,26 @@
+<p id="d1"></p>
+<p id="d2"></p>
+<script>
+    function check(){
+
+        document.getElementById("d1").innerHTML="Hello world";
+    }
+
+</script>
+<script>
+    function test(){
+    
+            document.getElementById("d2").innerHTML="Okay";
+            return false;
+    }
+
+</script>
+
+<form action="" method="post"  onsubmit="return test();">
+
+  <button type="submit" onsubmit="return test();" name="submit">Submit</button>  
+</form>
+
+
+
+<button onclick="check();">Click Here!</button>
