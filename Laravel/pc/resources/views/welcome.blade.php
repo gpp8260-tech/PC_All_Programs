@@ -55,157 +55,353 @@
     </section>
 
     <!-- About Section -->
+    <style>
+        /* Custom CSS Variables */
+        :root {
+            --primary-orange: #ff6b35;
+            --dark-bg: #1a1a2e;
+            --light-text: #f1f1f1;
+        }
+        
+        /* Section background and layout */
+        .about-section {
+            background: linear-gradient(135deg, rgba(208, 187, 26, 1), #5e4429ff, #2c5364);
+            color: var(--light-text);
+            padding: 60px 5%;
+            text-align: justify;
+            width: 100%;
+        }
+
+        /* Make container full width instead of fixed max-width */
+        .about-section .container {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Silver gradient text effect */
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #c0c0c0, #e0e0e0, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Paragraph styling */
+        .lead {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #f1f1f1;
+            margin-bottom: 20px;
+        }
+
+        /* Orange text for highlights */
+        .text-primary-orange {
+            color: var(--primary-orange) !important;
+        }
+
+        /* List styling */
+        .list-unstyled {
+            margin: 25px 0;
+        }
+        
+        .list-unstyled li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .list-unstyled i {
+            margin-right: 10px;
+        }
+
+        /* More Info Section */
+        .more-info-section {
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+        }
+        
+        .more-info-toggle {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-orange);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .more-info-toggle:hover {
+            color: #ff8c5a;
+        }
+        
+        .more-info-toggle i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .more-info-toggle.active i {
+            transform: rotate(180deg);
+        }
+        
+        .more-info-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .more-info-content.show {
+            max-height: 2000px;
+        }
+        
+        .info-item {
+            margin: 25px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color:#ff6b35;
+            border-radius: 8px;
+        }
+        
+        .info-item h5 {
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+        
+        .info-item ul {
+            padding-left: 20px;
+        }
+        
+        .info-item li {
+            margin-bottom: 8px;
+        }
+        
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            flex: 1;
+            min-width: 120px;
+            margin: 10px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .about-title {
+                font-size: 1.8rem;
+            }
+
+            .lead {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .about-section {
+                padding: 40px 15px;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                min-width: auto;
+            }
+        }
+        .list-images-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        .list-container {
+            flex: 1;
+            min-width: 300px;
+        }
+         .images-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            min-width: 300px;
+        }
+
+          .logo-image {
+            height: 150px;
+            width: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
     <section id="about" class="py-5">
         <div class="container">
-           
             <div class="row align-items-center">
-                 
-                <div class="col-lg-6">
-                  <section class="about-section">
-  <div class="container">
-    <h2 class="about-title">About Us — Patel Computers</h2>
+                <div class="col-lg-12">
+                    <section class="about-section">
+                        <div class="container">
+                            <h2 class="about-title">About Us — Patel Computers</h2>
 
-    <p class="lead">
-      Founded in 1991 and headquartered in Rajkot, Patel Computers is one of Gujarat’s most trusted names in computer education and vocational training. With over three decades of excellence, we have empowered thousands of students to build successful careers in Hardware, Software, Networking, and Mobile Repairing.
-    </p>
+                            <p class="lead">
+                                Founded in 1991 and headquartered in Rajkot, Patel Computers is one of Gujarat's most trusted names in computer education and vocational training. With over three decades of excellence, we have empowered thousands of students to build successful careers in Hardware, Software, Networking, and Mobile Repairing.
+                            </p>
 
-    <p class="lead">
-      As an ISO 9001:2015 certified institute, Patel Computers is an Authorized Training Centre for industry-leading platforms such as Tally, Miracle, Profit, and Shri Sava. Our courses are conducted with a focus on practical learning and Artificial Intelligence (AI) integration, ensuring that every student gains the knowledge and confidence to excel in today’s digital world.
-    </p>
+                            <p class="lead">
+                                As an ISO 9001:2015 certified institute, Patel Computers is an Authorized Training Centre for industry-leading platforms such as Tally, Miracle, Profit, and Shri Sava. Our courses are conducted with a focus on practical learning and Artificial Intelligence (AI) integration, ensuring that every student gains the knowledge and confidence to excel in today's digital world.
+                            </p>
 
-    <p class="lead">
-      At Patel Computers, we believe education should be accessible, relevant, and impactful. That’s why we offer training in vernacular language (Gujarati), helping learners from all backgrounds understand complex IT concepts with ease. Over the years, we’ve trained 30,000+ students and built 26+ centers across Gujarat, supported by 300+ placement partners.
-    </p>
+                            <p class="lead">
+                                At Patel Computers, we believe education should be accessible, relevant, and impactful. That's why we offer training in vernacular language (Gujarati), helping learners from all backgrounds understand complex IT concepts with ease. Over the years, we've trained 30,000+ students and built 26+ centers across Gujarat, supported by 300+ placement partners.
+                            </p>
 
-    <p class="lead">
-      Our motto, “Learn…..To Make a Difference,” truly defines who we are. We are committed to shaping not just skilled professionals, but confident individuals ready to make a positive impact in their communities and careers.
-    </p>
+                            <p class="lead">
+                                Our motto, "Learn.....To Make a Difference," truly defines who we are. We are committed to shaping not just skilled professionals, but confident individuals ready to make a positive impact in their communities and careers.
+                            </p>
 
-    <p class="lead">
-      Whether you’re a beginner exploring the digital world or a professional upgrading your skills, Patel Computers is your partner in growth, innovation, and lifelong learning.
-    </p>
-  </div>
-
-</section>
-
-<style>
-  /* Section background and layout */
-  .about-section {
-    background: linear-gradient(135deg, rgba(208, 187, 26, 1), #5e4429ff, #2c5364);
-    color: #ddd;
-    padding: 60px 20px;
-    text-align: justify;
-  }
-
-  .about-section .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  /* Silver gradient text effect */
-  .about-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 30px;
-    background: linear-gradient(90deg, #c0c0c0, #e0e0e0, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  }
-
-  /* Paragraph styling */
-  .lead {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #f1f1f1;
-    margin-bottom: 20px;
-  }
-
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .about-title {
-      font-size: 1.8rem;
-    }
-
-    .lead {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .about-section {
-      padding: 40px 15px;
-    }
-  }
-</style>
-
-
-
-                    <ul class="list-unstyled">
-                        <li><i class="bi bi-check-circle-fill text-primary-orange"></i> Experienced instructors</li>
-                        <li><i class="bi bi-check-circle-fill text-primary-orange"></i> Hands-on training</li>
-                        <li><i class="bi bi-check-circle-fill text-primary-orange"></i> Modern computer lab</li>
-                        <li><i class="bi bi-check-circle-fill text-primary-orange"></i> Job placement assistance</li>
-                       
-                    </ul>
-                   
-                    <!-- More Info Section -->
-                    <div class="more-info-section">
-                        <a class="more-info-toggle" id="moreInfoToggle">
-                            More Info <i class="bi bi-chevron-down"></i>
-                        </a>
-                        
-                        <div class="more-info-content" id="moreInfoContent">
-                            <div class="info-item">
-                                <h5>Our History</h5>
-                                <p>Founded in 2005 by Mr. Raj Patel, our institute started with just 5 computers and a vision to make computer education accessible to everyone in our community. Over the years, we've grown to become one of the most trusted computer training centers in the region, training over 5,000 students.</p>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h5>Our Mission</h5>
-                                <p>To empower individuals with practical computer skills that enhance their career prospects and personal growth in our increasingly digital world. We believe that everyone should have access to quality computer education regardless of their background.</p>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h5>Our Values</h5>
-                                <ul>
-                                    <li><strong>Quality Education:</strong> We maintain high standards in our curriculum and teaching methods.</li>
-                                    <li><strong>Student Success:</strong> Our primary focus is on ensuring each student achieves their learning goals.</li>
-                                    <li><strong>Community Focus:</strong> We actively participate in community digital literacy programs.</li>
-                                    <li><strong>Innovation:</strong> We continuously update our courses to reflect the latest industry trends.</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h5>Our Team</h5>
-                                <p>Our instructors are industry professionals with years of experience in their respective fields. They are not just teachers but mentors who guide students through their learning journey. Each instructor undergoes regular training to stay updated with the latest technologies.</p>
-                            </div>
-                            
-                            <div class="stats-container">
-                                <div class="stat-item">
-                                    <div class="stat-number">18+</div>
-                                    <div class="stat-label">Years Experience</div>
+                            <p class="lead">
+                                Whether you're a beginner exploring the digital world or a professional upgrading your skills, Patel Computers is your partner in growth, innovation, and lifelong learning.
+                            </p>
+                        </div>
+                        <div class="list-images-row">
+                        <div class="list-container">    
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle-fill text-primary-orange"></i> Experienced instructors</li>
+                            <li><i class="bi bi-check-circle-fill text-primary-orange"></i> Hands-on training</li>
+                            <li><i class="bi bi-check-circle-fill text-primary-orange"></i> Modern computer lab</li>
+                            <li><i class="bi bi-check-circle-fill text-primary-orange"></i> Job placement assistance</li>
+                        </ul>
+                        </div>
+                         <div class="images-container">
+                                    <img src="https://via.placeholder.com/300x150/1a1a2e/ff6b35?text=Patel+Computers" class="logo-image" alt="Patel Computers Logo">
+                                    
+                                    <img src="https://via.placeholder.com/300x150/1a1a2e/ff6b35?text=ISO+Certified" class="logo-image" alt="Patel Computers Logo">
+                                    
                                 </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">5,000+</div>
-                                    <div class="stat-label">Students Trained</div>
+                                                     </div>       
+                        <!-- More Info Section -->
+                        <div class="more-info-section">
+                            <a class="more-info-toggle" id="moreInfoToggle">
+                                More Info <i class="bi bi-chevron-down"></i>
+                            </a>
+                            
+                            <div class="more-info-content" id="moreInfoContent">
+                                <div class="info-item">
+                                    <h5>🏫 Our History</h5>
+                                    <p> About Patel Computers Education Systems Pvt. Ltd.
+                                    Since 1991 — Empowering Futures Through Technology & Skills
+                                    Patel Computers Education Systems Pvt. Ltd. (PCESPL), established in 1991, is one of Gujarat’s most trusted and pioneering computer education institutes. Headquartered at Astron Chowk, Rajkot, we have been a symbol of quality training, innovation, and career empowerment for more than three decades.
+                                    As an ISO 9001:2015 certified organization, Patel Computers has trained over 30,000+ students and professionals in diverse fields of technology — ranging from Hardware, Networking, Software, Accounting, Designing, Mobile Repairing, Multimedia, and Artificial Intelligence.
+                                    Our goal is simple — to provide practical, industry-ready skills that help students secure successful careers in today’s competitive world.
+</p>
                                 </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">25+</div>
-                                    <div class="stat-label">Courses Offered</div>
+                                
+                                <div class="info-item">
+                                    <h5>💡 Our Mission</h5>
+                                    <p>To deliver value-based, practical, and job-oriented IT education that bridges the gap between academic learning and industry expectations.
+                                    We aim to make every student digitally confident, professionally competent, and future-ready.
+</p>
                                 </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">95%</div>
-                                    <div class="stat-label">Success Rate</div>
+                                
+                                <div class="info-item">
+                                    <h5>🌟 Our Values</h5>
+                                    <p>To be recognized as India’s leading skill development institution, nurturing the next generation of professionals who are ready to contribute to global digital transformation.</p>
+                                    <!-- <ul>
+                                        <li><strong>Quality Education:</strong> We maintain high standards in our curriculum and teaching methods.</li>
+                                        <li><strong>Student Success:</strong> Our primary focus is on ensuring each student achieves their learning goals.</li>
+                                        <li><strong>Community Focus:</strong> We actively participate in community digital literacy programs.</li>
+                                        <li><strong>Innovation:</strong> We continuously update our courses to reflect the latest industry trends.</li>
+                                    </ul> -->
+                                </div>
+                                
+                                <div class="info-item">
+                                    <h5>🧠 <strong>Why Patel Computers?</strong></h5>
+                                     <ul>
+                                        <li><strong>34+ Years of Proven Legacy in IT Training</strong> </li>
+                                        <li><strong>ISO 9001:2015 Certified Institute</strong></li>
+                                        <li><strong>100% Practical Training Methodology</strong></li>
+                                        <li><strong>Expert Faculty with Industry Experience</strong> </li>
+                                        <li><strong>Courses Aligned with NEP 2020 & Government Skill Initiatives</strong> </li>
+                                        <li><strong>Modern Infrastructure & Hi-Tech Labs</strong> </li>
+                                        <li><strong>Job-Oriented Courses with Placement Support</strong> </li>
+                                        <li><strong>Modern Infrastructure & Hi-Tech Labs</strong> </li>
+                                        <li><strong>Authorized Testing & Training Partner for Multiple Brands</strong> </li>
+                                         
+                                    </ul> 
+                                </div>
+
+                                 
+                                <div class="info-item">
+                                    <h5> 🚀<strong> Our Key Divisions</strong></h5>
+                                     <ul>
+                                        <li><strong>Accounting & Finance Training </strong>Tally, GST, Taxation, FinTech, and Miracle Software </li>
+                                        <li><strong>Hardware, Networking & Mobile Repairing</strong>From chip-level repair to server networking</li>
+                                        <li><strong>Software & Web Development</strong>Python, Java, PHP, AI, and Full Stack Development</li>
+                                        <li><strong>Graphics, Multimedia & Animation</strong>Graphics, Multimedia & Animation </li>
+                                        <li><strong>AI & Emerging Technologies </strong>Generative AI, ChatGPT, Prompt Engineering & Power BI </li>
+                                        <li><strong>Teacher & Office Training </strong>Office Executive, TTC, and Digital Literacy Courses </li>                                        
+                                    </ul> 
+                                </div>
+
+                                <div class="info-item">
+                                    <h5>🌍 Our Presence</h5>
+                                    <p>Patel Computers has expanded its network across Gujarat with multiple centers and franchise partners making quality computer education accessible to all.</p>
+                                </div>
+                                <div class="info-item">
+                                    <h5>🤝 Our Commitment</h5>
+                                    <p>At Patel Computers, education is not just about certificates — it’s about careers, confidence, and character. We believe every learner deserves the opportunity to succeed, and our dedicated mentors ensure that every student achieves their fullest potential.</p>
+                                </div>
+                                
+                                <div class="stats-container">
+                                    <div class="stat-item">
+                                        <div class="stat-number">34+</div>
+                                        <div class="stat-label">Years Experience</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number">100,000+</div>
+                                        <div class="stat-label">Students Trained</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number">40+</div>
+                                        <div class="stat-label">Courses Offered</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number">300+</div>
+                                        <div class="stat-label">Placement Tie-ups</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
-               <!--- about image-->
-              <!--  <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded" alt="Computer class">
-                </div>-->
             </div>
         </div>
     </section>
@@ -281,12 +477,12 @@
                 <div class="col-md-6">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Get in Touch</h5>
+                            <h5 class="card-title">Get in Touch, Head Office</h5>
                             <ul class="list-unstyled">
-                                <li class="mb-3"><i class="bi bi-geo-alt-fill text-primary-orange"></i> 123 Computer Street, Tech City</li>
-                                <li class="mb-3"><i class="bi bi-telephone-fill text-primary-orange"></i> +1 (555) 123-4567</li>
-                                <li class="mb-3"><i class="bi bi-envelope-fill text-primary-orange"></i> info@patelcomputerclasses.com</li>
-                                <li class="mb-3"><i class="bi bi-clock-fill text-primary-orange"></i> Mon-Sat: 9AM - 6PM</li>
+                                <li class="mb-3"><i class="bi bi-geo-alt-fill text-primary-orange"></i> Patel Computers, 3rd Floor, Asish Complex,  Nr Astron Chowk, Sardar Nagar Main Road, Rajkot, Gujarat, India</li>
+                                <li class="mb-3"><i class="bi bi-telephone-fill text-primary-orange"></i> + (91) 99099 20155 / 70</li>
+                                <li class="mb-3"><i class="bi bi-envelope-fill text-primary-orange"></i>info@patelcomputers.in</li>
+                                <li class="mb-3"><i class="bi bi-clock-fill text-primary-orange"></i> Mon-Sat: 8AM - 8PM</li>
                             </ul>
                             <div class="mt-4">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1840523769235!2d-73.9876141845839!3d40.74824397932678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1678886597758!5m2!1sen!2sus" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
